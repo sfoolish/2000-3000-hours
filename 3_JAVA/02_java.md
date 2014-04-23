@@ -1,4 +1,12 @@
 ---
+
+## Head First Java
+
+实验网站，示例代码：http://www.headfirstlabs.com/books/hfjava/
+书本链接：http://uet.vnu.edu.vn/~chauttm/e-books/java/Head-First-Java-2nd-edition.pdf
+
+---
+
 ## [如何提升 Java 技术？](http://www.zhihu.com/question/19730466)
 
 ### 郭凛，软件手艺人，自学编程18年至今，创业中
@@ -12,6 +20,7 @@ J2EE是一滩很深的水，工程化也比较严重，如果一直做大项目�
 多做项目，多写代码，只有在项目开发当中遇到问题再去透彻的学习才能提升，没有目标的学习只会浪费时间和透支精力，熟能生巧，代码写的多了，技术自然就提升了
 
 ---
+
 ## [如何自学 Java？](http://www.zhihu.com/question/19945685/answer/13594055)
 
 ### 樊凯，Java-Android-创业者
