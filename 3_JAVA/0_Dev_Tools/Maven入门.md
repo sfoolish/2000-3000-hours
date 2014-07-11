@@ -13,6 +13,7 @@ Maven 使用惯例优于配置的原则 。
 	$ cd helloworld
 	$ mvn package
 	$ java -cp target/helloworld-1.0-SNAPSHOT.jar com.mycompany.helloworld.App
+
 ### REF
 
 * [Apache Maven 入门篇 ( 上 )](http://www.oracle.com/technetwork/cn/community/java/apache-maven-getting-started-1-406235-zhs.html)
