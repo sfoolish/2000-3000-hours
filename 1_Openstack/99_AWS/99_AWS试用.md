@@ -23,6 +23,9 @@ REF: [Connecting to Your Linux/Unix Instances Using SSH](http://docs.aws.amazon.
 
 ### scp 从 AWS 虚拟机中拷贝文件到本地
 
-	$ scp -i ~/.ssh/sf-mac.pem ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com:~/go1.3.windows-386.zip ./
+    $ scp -i ~/.ssh/sf-mac.pem ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com:~/go1.3.windows-386.zip ./
 
+### ssh vnc 隧道创建
+
+    $ ssh -o ServerAliveInterval=60 -i ~/.ssh/sf-mac.pem -L 5901:localhost:5901 ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com
 
