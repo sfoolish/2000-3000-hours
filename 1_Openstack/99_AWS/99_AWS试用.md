@@ -14,8 +14,8 @@ AWS 很多的收费都是按实际的资源使用量来收费的。并且提供�
 1. 安照 web 页面里的提示，创建 key-pair 并下载 private key 文件；
 2. 修改 private key 文件权限为只读： chmod 400 sf-mac.pem ；
 3. 从  [AWS EC2 Console](https://console.aws.amazon.com/ec2/v2/home?region=ap-southeast-1&#Instances:) 中获取 虚拟机的 public DNS，ubuntu系统的默认用户明是 ubuntu ；
-4. ssh -i sf-mac.pem ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com 
-4. ssh -o ServerAliveInterval=60  -i ~/.ssh/sf-mac.pem ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com 
+4. ssh -i sf-mac.pem ubuntu@ec2-xx-xx-xx-xx.ap-southeast-1.compute.amazonaws.com 
+4. ssh -o ServerAliveInterval=60  -i ~/.ssh/sf-mac.pem ubuntu@ec2-xx-xx-xx-xx.ap-southeast-1.compute.amazonaws.com 
 
 (如果 ssh 登入有问题，可以通过加选项 -v ，来打印更详细的错误信息。)
 
@@ -23,10 +23,8 @@ REF: [Connecting to Your Linux/Unix Instances Using SSH](http://docs.aws.amazon.
 
 ### scp 从 AWS 虚拟机中拷贝文件到本地
 
-    $ scp -i ~/.ssh/sf-mac.pem ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com:~/go1.3.windows-386.zip ./
+    $ scp -i ~/.ssh/sf-mac.pem ubuntu@ec2-xx-xx-xx-xx.ap-southeast-1.compute.amazonaws.com:~/go1.3.windows-386.zip ./
 
 ### ssh vnc 隧道创建
 
-    $ ssh -o ServerAliveInterval=60 -i ~/.ssh/sf-mac.pem -L 5901:localhost:5901 ubuntu@ec2-54-255-145-110.ap-southeast-1.compute.amazonaws.com
-
-    *
+    $ ssh -o ServerAliveInterval=60 -i ~/.ssh/sf-mac.pem -L 5901:localhost:5901 ubuntu@ec2-xx-xx-xx-xx.ap-southeast-1.compute.amazonaws.com
