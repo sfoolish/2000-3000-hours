@@ -1,0 +1,3 @@
+cd ../
+export GOPATH=$GOPATH:`pwd`
+cd - > /dev/null
