@@ -1,3 +1,6 @@
+
+Python命令行美化输出json数据： `python -mjson.tool json_filename` 或者通过管道 `some_cmd | python -mjson.tool` ，也可以直接在命令行使用双引号包围一个 json 数据字符串来替代 json_filename 的位置。而且，如果你安装了 Pygments 模块，可以高亮地打印JSON： `echo '{"json":"obj"}' | python -mjson.tool | pygmentize -l json` 。
+
 ---
 ## 语言基础
 
