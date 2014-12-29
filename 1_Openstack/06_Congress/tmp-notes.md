@@ -24,7 +24,6 @@
 [Copper](https://wiki.opnfv.org/requirements_projects/virtual_infrastructure_deployment_policies)
 项目目标：虚拟化基础设施提供"部署策略"（如亲和性，隔离（e.g.控制/用户面分离））
 Contributor: AT&T ericsson HP NEC ZTE HuangZhipeng(HW)
-	
 
 可能用到的上有Openstack项目
 
@@ -42,6 +41,25 @@ https://etherpad.openstack.org/p/par-kilo-congress-design-session 内容比较�
 * Policies
 Policies 描述用户想要在云中执行的逻辑。 Each ‘policy’ includes properties of the policy (e.g. ‘owner’), and a collection of rules declared using the policy language grammar.
 
+* congress 有一堆依赖openstack关系，涉及到的模块非常多；（画图，把已经实现的，即将实现的内容标示出来，已经实现但还没有合入主干代码）
+
+kilo 讨论重要：https://etherpad.openstack.org/p/par-kilo-congress-design-session
+
+https://wiki.openstack.org/wiki/Mistral
+
+
+https://etherpad.openstack.org/p/policy-congress-murano
+
+Nova policy based scheduler
+https://blueprints.launchpad.net/nova/+spec/policy-based-scheduler
+https://review.openstack.org/#/c/61386/
+有代码实现，但还没有合入主干，调度相关，可以给奇博看一下。
+
 - GBP(Group-based Policy Abstractions for Neutron) -> 网络相关基于Group的策略机制，ODL有实现GBP不过没有与Openstack对接，（cisco提的？邮件列表中有相关的讨论）可以找杨文革做一下简单交流
 - Volume Affinity -> Volume 调度的亲和性，不是我们关注的重点
 - OpenStack NFV team
+
+
+* 讨论一下cgress情况；
+* 跟反馈测试项目；
+* 反馈总体进展；
