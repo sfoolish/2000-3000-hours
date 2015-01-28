@@ -343,3 +343,60 @@ nova 的 metadat 是否可以更新？更新后虚拟机会几时的获取到更
                                            server, flavor, flavor_id)
             checkers.append(checker)
 
+
+---
+
+# Juno BP
+
+## Plugpoint for stack lifecycle events
+
+https://blueprints.launchpad.net/heat/+spec/stack-lifecycle-plugpoint
+http://specs.openstack.org/openstack/heat-specs/specs/stack-lifecycle-plugpoint.html
+
+A heat provider may have a need for custom code to examine stack requests prior to performing the operations to create or update a stack. Some applications may also need code to run after operations on a stack complete. The blueprint describes a mechanism whereby providers may easily add pre-operation calls from heat to their own code, which is called prior to performing the stack work, and post-operation calls which are made after a stack operation completes or fails.
+
+
+## Make Heat software configuration action-aware
+https://blueprints.launchpad.net/heat/+spec/action-aware-sw-config
+http://specs.openstack.org/openstack/heat-specs/specs/action-aware-sw-config.html
+
+With the current design, "software components" defined thru SoftwareConfig resources allow for only one config (e.g. one script) to be specified. Typically, however, a software component has a lifecycle that is hard to express in a single script. For example, software must be installed (created), there should be support for suspend/resume handling, and it should be possible to allow for deletion-logic. This is also in line with the general Heat resource lifecycle.
+
+A proposal for an “lifecycle action aware” software config could look like:
+
+ my_sw_config:
+   type: OS::Heat::SoftwareConfig
+   properties:
+     configs:
+       create: # the hook for software install
+       suspend: # hook for suspend action
+       resume: # hook for resume action
+       delete: # hook for delete action
+       my_own_stuff: # allow for any custom config hook
+
+I.e. the SoftwareConfig resource would allow for defining several configurations for different lifecycle actions of the corresponding SoftwareDeployment at runtime. The handling will be done by an in-instance hook into os-collect-config. For Heat's default resource lifecycle actions (create, delete, suspend, resume) handling logic can be implemented in a generic hook. For any custom configurations ('my_own_stuff') users will have to provide their own hooks with the necessary logic.
+
+---
+
+{'OS::Nova::ServerGroup': ServerGroup}
+"anti-affinity", "affinity"
+
+---
+ceilometer meters /heat/engine/resources/ceilometer/alarm.py
+
+NOVA_METERS = ['instance', 'memory', 'memory.usage',
+               'cpu', 'cpu_util', 'vcpus',
+               'disk.read.requests', 'disk.read.requests.rate',
+               'disk.write.requests', 'disk.write.requests.rate',
+               'disk.read.bytes', 'disk.read.bytes.rate',
+               'disk.write.bytes', 'disk.write.bytes.rate',
+               'disk.device.read.requests', 'disk.device.read.requests.rate',
+               'disk.device.write.requests', 'disk.device.write.requests.rate',
+               'disk.device.read.bytes', 'disk.device.read.bytes.rate',
+               'disk.device.write.bytes', 'disk.device.write.bytes.rate',
+               'disk.root.size', 'disk.ephemeral.size',
+               'network.incoming.bytes', 'network.incoming.bytes.rate',
+               'network.outgoing.bytes', 'network.outgoing.bytes.rate',
+               'network.incoming.packets', 'network.incoming.packets.rate',
+               'network.outgoing.packets', 'network.outgoing.packets.rate']
+
