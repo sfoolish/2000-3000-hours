@@ -59,3 +59,11 @@ apt-get install -y --force-yes ceilometer-api ceilometer-collector ceilometer-ag
  python-ceilometerclient
 apt-get install -y --force-yes ceilometer-agent-compute
 
+# service stop
+cd /etc/init.d
+
+for i in `ls ceilometer* glance* cinder* neutron* nova* heat* keystone* `
+do
+    service $i stop
+done
+cd -
