@@ -596,3 +596,21 @@ for key, value in mydic.items() :
 
 for key in mydic.keys():
   print "the key name is" + key + "and its value is" + mydic[key]
+
+---
+
+## python display object attr and method
+
+'%r' % vars(play._variable_manager)
+'%r' % dir(play.get_variable_manager())
+
+```python
+# replacing 'object' with the object you're interested
+# http://stackoverflow.com/questions/34439/finding-what-methods-an-object-has
+[method for method in dir(object) if callable(getattr(object, method))]
+```
+
+---
+
+[python编程常用模板总结](http://blog.csdn.net/xingjiarong/article/details/50651235)
+
