@@ -614,3 +614,9 @@ for key in mydic.keys():
 
 [python编程常用模板总结](http://blog.csdn.net/xingjiarong/article/details/50651235)
 
+## Python 写日志文件
+
+```python
+with open("/tmp/log/sf-debug.log", "a+") as f:
+    f.write("hello\n")
+```
