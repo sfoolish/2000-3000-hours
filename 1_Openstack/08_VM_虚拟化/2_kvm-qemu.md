@@ -223,3 +223,36 @@ sudo apt-get install qemu-kvm libvirt-bin virt-manager bridge-utils
 [Debian Lenny and Squeeze amd64 images for QEMU or KVM](http://people.debian.org/~aurel32/qemu/amd64/)
 [[ANNOUNCE] Native Linux KVM tool](http://amosk.info/blog/?p=622)
 
+
+---
+## [Nested Virtualization: VT-in-VT](https://www.virtualbox.org/ticket/4032)
+
+```bash
+#Unload and reload kvm-intel kernel module with nested support.
+modprobe -r kvm-intel
+modprobe kvm-intel nested=1
+cat /sys/module/kvm_intel/parameters/nested
+Y (Y for yes)
+
+echo 'options kvm_intel nested=1' >> /etc/modprobe.d/qemu-system-x86.conf
+```
+
+
+* [How to Enable Nested KVM](http://www.rdoxenham.com/?p=275)
+
+Centos 7 下 vm 的 libvirt xml 还需要添加 vmx 相关设置，起来的 vm 才支持虚拟化指令集
+
+```xml
+<cpu match='exact'>
+  <model>Westmere</model>
+ <feature policy='require' name='vmx'/>
+</cpu>
+```
+
+```xml
+<cpu mode='host-passthrough'/>
+```
+
+* [CPU model and topology](https://libvirt.org/formatdomain.html#elementsCPU)
+* https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Virtualization_Administration_Guide/sect-libvirt-dom-xml-cpu-model-top.html
+
