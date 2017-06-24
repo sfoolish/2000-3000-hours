@@ -8,6 +8,8 @@
 ###  collectd 的简易安装方式及使用
 
 #### 配置本地镜像源（optional）
+
+```bash
 cat << "EOF" > /etc/apt/sources.list
 deb http://192.168.21.2:8888/mirror/archive.ubuntu.com/ubuntu xenial main restricted
 deb http://192.168.21.2:8888/mirror/archive.ubuntu.com/ubuntu xenial-updates main restricted
@@ -20,6 +22,7 @@ deb http://192.168.21.2:8888/mirror/security.ubuntu.com/ubuntu xenial-security m
 deb http://192.168.21.2:8888/mirror/security.ubuntu.com/ubuntu xenial-security universe
 deb http://192.168.21.2:8888/mirror/security.ubuntu.com/ubuntu xenial-security multiverse
 EOF
+```
 
 #### 安装 collectd
 
@@ -28,7 +31,7 @@ apt-get update
 apt-get install -y collectd collectd-utils
 ```
 
-```
+```console
 root@vm1:/etc/collectd# ls
 collectd.conf  collectd.conf.d  collection.conf
 
@@ -56,9 +59,9 @@ tar xf v1.tar.gz
 mv CGP-1/ cgp
 ```
 
-Collectd Graph Panel 的官方代码路径： https://github.com/pommi/CGP
-Apache 默认静态文件路径：/var/www/html
-CGP 的配置文件路径在：/var/www/html/cgp/conf/config.php
+* Collectd Graph Panel 的官方代码路径： https://github.com/pommi/CGP
+* Apache 默认静态文件路径：/var/www/html
+* CGP 的配置文件路径在：/var/www/html/cgp/conf/config.php
 
 ### collectd 的集群化复杂使用场景的常见安装配置方式
 
@@ -68,7 +71,7 @@ CGP 的配置文件路径在：/var/www/html/cgp/conf/config.php
 
 - server 汇聚端 collectd.conf 配置
 
-```
+```console
 LoadPlugin network
 
 <Plugin network>
@@ -88,7 +91,7 @@ user1: bar
 
 - client 端 collectd.conf 配置
 
-```
+```console
 LoadPlugin network
 
 <Plugin network>
@@ -108,7 +111,7 @@ LoadPlugin network
 
 * https://github.com/chenryn/logstash-best-practice-cn/blob/master/input/collectd.md
 
-```
+```bash
 wget http://collectd.org/files/collectd-5.4.1.tar.gz
 tar zxvf collectd-5.4.1.tar.gz
 cd collectd-5.4.1
@@ -116,6 +119,8 @@ apt-get install -y gcc make
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib --mandir=/usr/share/man --enable-all-plugins
 make && make install
 ```
+
+### collectd
 
 * collectd 的代码解析
     - collectd 的插件机制
