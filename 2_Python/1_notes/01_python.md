@@ -614,3 +614,27 @@ for key in mydic.keys():
 
 [python编程常用模板总结](http://blog.csdn.net/xingjiarong/article/details/50651235)
 
+## Python 写日志文件
+
+```python
+with open("/tmp/log/sf-debug.log", "a+") as f:
+    f.write("hello\n")
+```
+
+## Python traceback for debug
+
+```python
+# https://stackoverflow.com/questions/1156023/print-current-call-stack-from-a-method-in-python-code
+import traceback
+import sys
+def test1():
+    test2()
+
+def test2():
+    print traceback.format_exc(sys.exc_info())
+    #print traceback.format_stack()
+    print ''.join(traceback.format_stack())
+    #traceback.print_stack(file=sys.stdout)
+
+test1()
+```
