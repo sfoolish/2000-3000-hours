@@ -6,7 +6,6 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
-	"time"
 )
 
 func sfTrimPrefix() {
@@ -111,15 +110,15 @@ func sfTestJson() {
 }
 
 func main() {
-	fmt.Println("hello")
-	sfTrimPrefix()
-	sfAtoi()
-	go sfgoHello()
-	go sfgoWorld()
+//	fmt.Println("hello")
+//	sfTrimPrefix()
+//	sfAtoi()
+//	go sfgoHello()
+//	go sfgoWorld()
 	sfCofMaxProcs()
 	sfCofMaxProcs()
-	sfTestSum()
-	sfTestBufChan()
-	sfTestJson()
-	time.Sleep(100 * time.Millisecond)
+//	sfTestSum()
+//	sfTestBufChan()
+//	sfTestJson()
+//	time.Sleep(100 * time.Millisecond)
 }
